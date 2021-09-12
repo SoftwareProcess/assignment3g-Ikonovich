@@ -228,7 +228,7 @@ class ProbTest(TestCase):
         
     def testSingleDegreeFreedomHighT(self):
         t = 63.6567
-        n = 30
+        n = 1
         epsilon = 0.001
         resultExpected = 0.995
         resultActual = integrate(n, t, function)
