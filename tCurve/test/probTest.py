@@ -1,5 +1,7 @@
 from unittest import TestCase
 from tCurve.prob import prob as prob
+from tCurve.prob import _integrate as integrate
+from tCurve.prob import _f as function
 import json
 
 
@@ -205,3 +207,37 @@ class ProbTest(TestCase):
         result = prob(self.inputDictionary)
         self.assertIn(self.errorKey, result)
         self.assertIn(self.errorValue, result[self.errorKey])
+        
+    # Integration tests
+    
+    def testSingleDegreeFreedomLowT(self):
+        t = 0.3249
+        n = 1
+        epsilon = 0.001
+        resultExpected = 0.6
+        resultActual = integrate(n, t, function)
+        self.assertEqual(resultExpected, resultActual)
+        
+    def testMultipleDegreesFreedomLowT(self):
+        t = 0.2556
+        n = 30
+        epsilon = 0.001
+        resultExpected = 0.6
+        resultActual = integrate(n, t, function)
+        self.assertEqual(resultExpected, resultActual)
+        
+    def testSingleDegreeFreedomHighT(self):
+        t = 63.6567
+        n = 30
+        epsilon = 0.001
+        resultExpected = 0.995
+        resultActual = integrate(n, t, function)
+        self.assertEqual(resultExpected, resultActual)
+        
+    def testMultipleDegreesFreedomHighT(self):
+        t = 2.7500
+        n = 30
+        epsilon = 0.001
+        resultExpected = 0.995
+        resultActual = integrate(n, t, function)
+        self.assertEqual(resultExpected, resultActual)

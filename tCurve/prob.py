@@ -1,5 +1,6 @@
 import math
 import platform
+from tCurve.sandbox.integrateTest import _integrateTest as integrateTest
 
 
 # Outward facing method(s)
@@ -105,5 +106,6 @@ def _f(u, n):
 
 
 # ----------- PLEASE COMPLETE THE FUNCTION BELOW ----------
-def _integrate(t, n, f):
-    pass
+def _integrate(t, n, _f):
+    
+    return integrateTest(t, n, _f)
