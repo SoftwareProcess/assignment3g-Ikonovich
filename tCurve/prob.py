@@ -1,7 +1,5 @@
 import math
 import platform
-from tCurve.sandbox.integrateTest import _integrateTest as integrateTest
-
 
 # Outward facing method(s)
 def prob(parmDictionary):
